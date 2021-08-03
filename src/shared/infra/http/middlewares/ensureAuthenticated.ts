@@ -15,7 +15,7 @@ export async function ensureAuthenticated(
         throw new AppError("Token missing", 401);
     }
 
-    const [, token] = authHeader.split("")
+    const [, token] = authHeader.split(" ")
 
     try {
         const { sub: user_id } = verify(token, "ed8ddebb253f5adda6a6ff67ba33d5c8") as IPayload;
